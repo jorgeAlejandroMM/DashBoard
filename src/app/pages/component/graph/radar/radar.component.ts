@@ -19,7 +19,7 @@ export class RadarComponent implements OnInit {
   constructor(private servicecommerce:ComercioService ) { }
 
   ngOnInit(): void {
-    this.servicecommerce.getCommercesgraph().subscribe((data:any)=>{
+    this.servicecommerce.getCommercesGraph().subscribe((data:any)=>{
       let numeros:number;
      data.forEach((elemts:any)=>{
        this.radarChartLabels.push(elemts['name']);

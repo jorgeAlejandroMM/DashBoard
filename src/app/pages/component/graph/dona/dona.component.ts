@@ -22,7 +22,7 @@ export class DonaComponent implements OnInit {
 
   ngOnInit(){
 
-    this.servicecommerce.getCommercesgraph().subscribe((data:any)=>{
+    this.servicecommerce.getCommercesGraph().subscribe((data:any)=>{
        let numeros:number;
       data.forEach((elemts:any)=>{
         this.doughnutChartLabels.push(elemts['name']);
@@ -33,8 +33,8 @@ export class DonaComponent implements OnInit {
 
       });
     });
-    console.log(this.doughnutChartLabels);
-  console.log( this.doughnutChartData);
+  //   console.log(this.doughnutChartLabels);
+  // console.log( this.doughnutChartData);
   
   }
 

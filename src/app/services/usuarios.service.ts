@@ -26,8 +26,7 @@ export class UsuariosService {
   
             Object.keys(keyUsuario).forEach(((valores)=>{
              
-              usuario.push(keyUsuario[valores])
-              ;
+              usuario.push(keyUsuario[valores]);
           }));
           return usuario;
           // console.table(usuario);

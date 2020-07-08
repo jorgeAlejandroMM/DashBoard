@@ -32,7 +32,7 @@ ngOnInit(): void {
 
 CargarComercio(){
 
-  this.servicecommerces.getCommercesgraph().subscribe((data:any)=>{ 
+  this.servicecommerces.getCommercesGraph().subscribe((data:any)=>{ 
 
     data.forEach(elemts=>{
     this.barChartLabels.push(elemts['name']);

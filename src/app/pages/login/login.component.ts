@@ -16,10 +16,13 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.usuario.correo= "alejo@email.com";
+    this.usuario.Password="123";
+   
   }
 
   get ValidarCorreo(){
-
+    
     const Controlcorreo=this.formGroup.get('correo');
     return  Controlcorreo.invalid &&  Controlcorreo.touched  
    }

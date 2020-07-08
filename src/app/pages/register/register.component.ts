@@ -2,14 +2,13 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UsuarioModel } from 'src/app/model/Usuario.model';
 import { AutenticacionService } from 'src/app/services/autenticacion.service';
-import { Observable } from 'rxjs';
 import { ValidationService } from 'src/app/services/validadores/ValidationForm.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-registry',
-  templateUrl: './registry.component.html',
-  styleUrls: ['./registry.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
 export class RegistryComponent implements OnInit  {
 

@@ -63,7 +63,7 @@ UsuarioActivo():boolean{
 LeerTokenSesion(){
 
  if ( this.ObtenerToken() ){
-  //  this.router.navigate(['Home'])
+   this.router.navigate(['Home'])
   return ;
   }
 }
