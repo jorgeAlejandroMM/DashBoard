@@ -1,0 +1,12 @@
+
+<form action="" [formGroup]="formGroup" (ngSubmit)="ValidarFormLogin()">
+<label for="">Correo</label>
+    <input type="text"  formControlName="correo" [(ngModel)]="usuario.correo" name="correo" placeholder="ejemploejemplo.com">
+    <small *ngIf="ValidarCorreo"><span class="text-danger">Debe cumplir las caracteristicas de un correo</span></small>
+    <br>    
+    <label for="">password</label>
+    <input type="text" formControlName="password" [(ngModel)]="usuario.Password" name="password" placeholder="1234">
+    <small *ngIf="ValidarPassword"><span class="text-danger">Deben Tener min 3 digitos</span></small>
+    <button type="submit">Ingresar  </button>
+</form>
+ <a href="Registro">Registrarse</a> 

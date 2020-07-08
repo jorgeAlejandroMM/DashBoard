@@ -1,0 +1,25 @@
+
+
+   
+  
+      <div id="dona" style="display: block">
+        <canvas baseChart
+                    [data]="doughnutChartData"
+                    [labels]="doughnutChartLabels"
+                    [chartType]="doughnutChartType"
+                    [colors]="barChartColors"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)">
+                </canvas>
+      </div>
+  
+  
+    <!-- <div class="col-md-4">
+      <button type="button" class="btn btn-primary btn-block"
+              (click)="numeros_random()">
+          Actualizar
+      </button>
+    </div> -->
+  
+ 
+  

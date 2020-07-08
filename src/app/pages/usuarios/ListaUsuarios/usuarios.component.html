@@ -1,0 +1,31 @@
+<h1>Lista de usuarios</h1>
+<button type="button" [routerLink]="['EditarUsuario']" routerLinkActive="active">Editar</button>
+
+<table border="1">
+    <thead>
+        <tr>
+        <th>  # </th>
+        <th>  ID </th>
+        <th>  nombre</th>
+        <th> Correo </th>
+        <th>  Password </th>
+        <th>  Estado </th>
+        <th>   </th>
+        <th>   </th>
+
+        </tr>
+    </thead>
+    <tbody>
+<tr *ngFor="let usuario of ListaUsuarios;let i = index">
+    <td>{{i+1}}</td>
+    <td>{{usuario.id}}</td>
+    <td>{{usuario.nombre}}</td>
+    <td>{{usuario.correo}}</td>
+    <td>{{usuario.Password}}</td>
+    <td>{{usuario.estado}}</td>
+    <td><button type="button" (click)="editarUsuario(usuario)">Editar</button></td>
+    <td><button type="button" (click)="eliminarUsuario(usuario)">Eliminar</button></td>
+
+</tr>
+    </tbody>
+</table>
