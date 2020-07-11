@@ -13,7 +13,7 @@ import { data } from 'jquery';
 export class AutenticacionService {
 
   URL:string;
-  usuario:UsuarioModel =new UsuarioModel();
+  usuario:UsuarioModel []=[];
   constructor(private http:HttpClient, private router: Router) { 
   this.URL="https://login-86407.firebaseio.com/";
   this.LeerTokenSesion();
@@ -22,8 +22,8 @@ export class AutenticacionService {
 
 crearUsuario(usuario:UsuarioModel){
   
-  this.usuario ={...usuario}
-  return this.http.post(`${this.URL}/Usuario.json`, usuario)
+  let  temp ={...usuario}
+  return this.http.post(`${this.URL}/Usuario.json`, temp)
   .pipe(map((data:object)=>{  
     this.IniciarSesion(data['name']) 
     return data}
@@ -63,7 +63,7 @@ UsuarioActivo():boolean{
 LeerTokenSesion(){
 
  if ( this.ObtenerToken() ){
-   this.router.navigate(['Home'])
+  //  this.router.navigate(['Home'])
   return ;
   }
 }
@@ -84,7 +84,9 @@ Login(usuarioParam:UsuarioModel):Observable<any>|any{
         if ((keyUsuario[valores].correo == usuarioParam.correo) && (keyUsuario[valores].Password == usuarioParam.Password) ){
           //guardamos el objeto en el modelo para no hacer mas consultas 
           //utilizamos el spread
-          this.usuario= {...keyUsuario[valores]};
+          this.usuario.push(keyUsuario[valores]);
+          console.table(this.usuario);
+          
           //Guardamos el id padre del objeto usuario
             this.GuardarTokenSesion(valores);
             this.router.navigate(['Home']);

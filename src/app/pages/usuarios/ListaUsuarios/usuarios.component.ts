@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 import { UsuarioModel } from 'src/app/model/Usuario.model';
+import { EditarComponent } from 'src/app/pages/usuarios/editarUsuario/editar.component';
+
 import { Router } from '@angular/router';
 
 
@@ -11,22 +13,21 @@ import { Router } from '@angular/router';
 })
 export class UsuariosComponent implements OnInit {
 
-  ListaUsuarios:UsuarioModel[]=[]
-
+  ListaUsuarios:Array<any>=[]
+  EditarUsuario:EditarComponent;
   constructor(private servicioUser:UsuariosService, private router:Router) { 
    
 
   }
 
   ngOnInit(): void {
-    this.obtenerUsuarios()
+    this.obtenerUsuarios();
   }
 
   obtenerUsuarios(){
     this.servicioUser.ObtenerUsuarios().subscribe(data=>{ 
       this.ListaUsuarios=data;
-
-       console.table(this.ListaUsuarios)
+      //  console.table(this.ListaUsuarios)
       })
   }
 
@@ -36,10 +37,8 @@ export class UsuariosComponent implements OnInit {
   }
 
   editarUsuario(user:UsuarioModel){
-    console.log(user.id);
-    
-    return this.router.navigate(['/EditarUsuario']); 
-    // return this.router.navigateByUrl('/EditarUsuario');
-    // user.id?this.router.navigateByUrl(`/Editar`)
+ 
+    localStorage.setItem('usuario', JSON.stringify(user))
+   return this.router.navigate([`/navbarUsers/EditarUsuario`,user.id]); 
   }
 }

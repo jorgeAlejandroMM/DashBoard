@@ -20,7 +20,7 @@ export class RegistryComponent implements OnInit  {
                private ServicioAut: AutenticacionService,
                private ServicioValida:ValidationService,
                private router:Router) {
-                this.ValidaRFormulario();
+                this.ValidarFormulario();
               this.email=false;
               }
 
@@ -52,7 +52,7 @@ export class RegistryComponent implements OnInit  {
     return  (this.formGroup.get('password').value != this.formGroup.get('confirmpassword').value?  true: false) && this.formGroup.get('confirmpassword').touched ;
    }
 
-  ValidaRFormulario(){
+  ValidarFormulario(){
 
   this.formGroup=this.formBuilder.group(
     {

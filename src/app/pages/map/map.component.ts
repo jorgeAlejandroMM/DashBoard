@@ -13,6 +13,11 @@ export class MapComponent implements OnInit {
    mapa:Mapboxgl.Map;
    marker:Mapboxgl.Marker;
    Coordenadas:Array<any>=[]
+
+   map: mapboxgl.Map;
+lat = 13.0569951;
+lng = 80.20929129999999;
+message = 'Hello World!';
 constructor(private servicecommerce:ComercioService){
 
  
@@ -42,6 +47,29 @@ constructor(private servicecommerce:ComercioService){
       this.crearMarcador(-68.13734351262877, 45.137451890638886);
 
 }
+getMarkers() {
+    const geoJson = [{
+      'type': 'Feature',
+      'geometry': {
+        'type': 'Point',
+        'coordinates': ['80.20929129999999', '13.0569951']
+      },
+      'properties': {
+        'message': 'Chennai'
+      }
+    }, {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'Point',
+        'coordinates': ['77.350048', '12.953847' ]
+      },
+      'properties': {
+        'message': 'bangulare'
+      }
+    }];
+    return geoJson;
+  }
+  
 
 crearMarcador(lng :number , lat : number){
   // const coordinates = document.getElementById('coordinates');
@@ -56,6 +84,25 @@ crearMarcador(lng :number , lat : number){
       
     });
 
+    
+
+    this.mapa.addLayer({
+            id: 'customMarketid',
+            source: 'customMarker',
+            type: 'symbol',
+            layout: {
+              'text-field': '{message}',
+              'text-size': 24,
+              'text-transform': 'uppercase',
+              'icon-image': 'marker-15',
+              'text-offset': [0, 1.5]
+            },
+            paint: {
+              'text-color': '#f16624',
+              'text-halo-color': '#fff',
+              'text-halo-width': 2
+            }
+          });
     // this.mapa.on('load', ()=> {
     //   this.mapa.addSource('maine', {
     //   'type': 'geojson',

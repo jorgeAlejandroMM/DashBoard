@@ -13,7 +13,7 @@ export const usuarioRoutes:Routes=[
 
     },
     {
-        path:'EditarUsuario',
+        path:'EditarUsuario/:id',
         component:EditarComponent,
         canActivate: [SeguridadSesionGuard],
 

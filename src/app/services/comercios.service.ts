@@ -28,7 +28,6 @@ export class ComercioService {
 
    //Coordenadas de comercio
    getCommercesLayer():Observable<any>{
-   let temp=[];
     return this._http.get(`${this.URL}/layer`)
     .pipe(map((data:any)=>data['features']))
    }

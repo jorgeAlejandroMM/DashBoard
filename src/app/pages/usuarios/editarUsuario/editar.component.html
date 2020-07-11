@@ -1,1 +1,103 @@
-<p>editar works!</p>
+<form [formGroup]="formGroup">
+    <div class="form-row" >
+      <div class="form-group col-md-6">
+        <div class="form-group">
+            <label for="inputAddress">ID</label>
+
+            <input type="text" 
+            class="form-control" 
+            [(ngModel)]="user.id" 
+            formControlName="id"
+            name="id" 
+            disabled
+             id="inputAddress" 
+             placeholder="1234 Main St">
+
+          </div>
+        <label for="inputEmail4">Email</label>
+
+        <input type="email" 
+        class="form-control"
+        formControlName="correo"
+         [(ngModel)]="user.correo"
+          name="correo"  
+          id="inputEmail4"
+           placeholder="Email">
+
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Password</label>
+
+        <input type="text"
+         class="form-control"
+        formControlName="password"
+         [(ngModel)]="user.Password"
+          name="password" 
+          id="inputPassword4" 
+          placeholder="Password">
+
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputAddress">Nombre</label>
+      <input type="text" 
+      class="form-control" 
+      formControlName="nombre"
+      [(ngModel)]="user.nombre"
+       name="nombre" 
+        id="inputAddress"
+         placeholder="1234 Main St">
+
+    </div>
+    <div class="form-group">
+      <label for="inputAddress2">Rol</label>
+      <!-- para el rol lo que aremos sera crear un DOcumento en firebase
+    y Consumirlo para que traiga los roles -->
+      <input type="text"
+       class="form-control" 
+       id="inputAddress2" 
+       placeholder="Apartment, studio, or floor">
+    </div>
+    <div class="form-row">
+      <!-- <div class="form-group col-md-6">
+        <label for="inputCity">City</label>
+        <input type="text" class="form-control" id="inputCity">
+      </div> -->
+      <div class="form-group col-md-4">
+        <label for="inputState">Estado</label>
+        <select id="inputState" name="estado" class="form-control">
+          <option selected >Choose...</option>
+          <option>...</option>
+        </select>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputZip">Estado Actual</label>
+        
+
+        <button 
+        (click)="user.estado = false"
+        *ngIf="user.estado"
+        type="button">
+        <span class="fa fa-check" aria-hidden="true">Activo</span>
+        </button>
+
+        <button 
+        (click)="user.estado = true"
+        *ngIf="!user.estado"
+        type="button">
+        <span class="fa fa-times" aria-hidden="true">Inactivo</span>
+        </button>
+      </div>
+
+    </div>
+    <div class="form-group">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck">
+        <label class="form-check-label" for="gridCheck">
+          Check me out
+        </label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  </form>
+  {{user.estado }}

@@ -25,12 +25,7 @@ const routes: Routes = [
     canActivate: [SeguridadSesionGuard],
     children: usuarioRoutes
   },
-  {
-    path: "Mapa",
-    component:MapComponent,
-    canActivate: [SeguridadSesionGuard]
-
-  },
+ 
   {
     path: "Home",
     component:HomeComponent,
